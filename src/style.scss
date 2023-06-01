@@ -130,9 +130,9 @@ body {
   position: absolute;
   top: 100px;
   left:0;
-  z-index: 999;
-  // opacity: 0;
-  // visibility: hidden;
+  z-index: -999;
+  opacity: 0;
+  visibility: hidden;
   background: #fff;
   list-style: none;
   transition: 0.3s;
@@ -356,6 +356,7 @@ body {
         display: inline-block;
         margin-right: 8px;
         background-repeat: no-repeat;
+        margin-bottom: -7px;
       }
     }
   }
@@ -403,11 +404,11 @@ body {
       padding: 8px 0;
       background-color: #12B76A;
       height: 32px;
+      overflow: hidden;
       &-text {
-      position: absolute;
       animation-timing-function: linear;
       animation-name: run;
-      animation-duration: 3s;
+      animation-duration: 8s;
       animation-iteration-count: infinite;
       animation-direction: reverse;
       transform: translateX(100%);
@@ -415,17 +416,22 @@ body {
       font-size: 11px;
       line-height: 16px;
       text-transform: uppercase;
-
+      display: flex;
       &--grey {
           margin-left: 8px;
           color: rgba(255, 255, 255, 0.56);
         }
       }
+
+      &-box {
+        white-space: nowrap;
+        margin-right: 5px;
+      }
     }
 }
 @keyframes run {
   from {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   to {
     transform: translateX(-100%);
