@@ -232,6 +232,115 @@ body {
     // }  
   } 
 }
+ 
+.dropdown-second {
+  position: relative;
+ 
+  &__content {
+    transition: 0.3s;
+  }
+
+  &--active {
+    & .brand-reviews {
+      height: auto;
+    }
+
+    &.header__haschild {
+      .header__link-trigger {
+        color: #6941C6;
+
+        &:after {
+          display: inline-block;
+          padding: 3px;
+          transform: rotate(-135deg);
+          content: "";
+          margin-left: 5px;
+          border: solid #6941C6;
+          border-width: 0 2px 2px 0;
+        }
+      }
+    }
+  }
+}
+
+.brand-reviews {
+  height: 0;
+  overflow: hidden;
+  
+  position: absolute;
+  top: 60px;
+  width: 100vw;
+  left: -750px;
+  z-index: 100;
+  padding: 32px 32px 32px 0;
+  background-color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #101828;
+
+  &__box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    display: inline;
+    margin-bottom: 32px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    color: #101828;
+  }
+  &__btn {
+    border: 1px solid #6941C6;
+    padding: 16px;
+    color: #6941C6;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+
+    &__arrow {
+      margin-left: 8px;
+    }
+  }
+  &__links {
+    margin-bottom: 32px;
+  }
+  &__right {
+    width: 500px;
+    background-color: #D1FADF;
+  }
+  &__choice {
+    padding: 32px 0 32px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.review-website {
+  width: 600px;
+
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E4E7EC;
+  &__link {
+    text-decoration: none;
+    display: flex;
+    &:hover {
+      color:#ada4c6;
+      path{
+        fill: #ada4c6;
+      }
+    }
+  }
+}
+
  .grid {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -607,6 +716,7 @@ body {
 
     }
     &-main {
+      display: inline;
       font-style: normal;
       font-weight: 300;
       font-size: 48px;

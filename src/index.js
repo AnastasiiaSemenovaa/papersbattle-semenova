@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   });
 
+
   // trigger.addEventListener('mouseleave', (event)=> {
   //   header.style.backgroundColor="#9E77ED";
   //   dropdown.classList.remove('dropdown-first--active');
@@ -52,7 +53,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //   })
   // }
 
+  let dropdownSecond = document.querySelector('.dropdown-second');
+  let triggerSecond = dropdown.querySelector('.header__link-trigger--second');
 
+
+  triggerSecond.addEventListener('mouseenter', (event)=> {
+    if (dropdownSecond.classList.contains('dropdown-second--active')){
+      dropdownSecond.classList.remove('dropdown-second--active');
+      
+    }
+    else {
+      dropdownSecond.classList.add('dropdown-second--active');
+      header.style.backgroundColor="green";
+    }
+
+  });
 
 
 
