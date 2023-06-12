@@ -1,8 +1,6 @@
-// import './libs./swiper-bundle.min.scss';
+import './libs/swiper-bundle.min.scss';
 import './style.scss';
 import Swiper, { Navigation, Pagination } from 'swiper';
-
-
 
 import lozad from 'lozad'
 const observer = lozad();
@@ -12,7 +10,8 @@ observer.observe();
     
 document.addEventListener("DOMContentLoaded", function(event) {
   var swiper = new Swiper(".swiper", {
-    spaceBetween: 30,
+    spaceBetween: 16,
+    slidesPerView: 3.3,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -20,56 +19,54 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
 
-  let dropdown = document.querySelector('.dropdown-first');
-  let trigger = dropdown.querySelector('.header__link-trigger');
+  let menuHasChild = document.querySelectorAll('.header__haschild');
   let header = document.querySelector('.header');
+  let menuDrop = document.querySelector('.menu-drop');
+  let menuDropContent = document.querySelectorAll('.menu-drop__content');
 
-  trigger.addEventListener('mouseenter', (event)=> {
-    // dropdown.classList.toggle('dropdown-first--active');
-    if (dropdown.classList.contains('dropdown-first--active')){
-      dropdown.classList.remove('dropdown-first--active');
-      
-    }
-    else {
-      dropdown.classList.add('dropdown-first--active');
-      header.style.backgroundColor="#fff";
-      headerColors();
-    }
+  menuHasChild.forEach(element => {
+    element.addEventListener('mouseover', (event)=> {
+      menuOpen(element)
+    });
+  })
 
+  header.addEventListener('mouseleave', (event)=> {
+    menuClose()
   });
 
 
-  // trigger.addEventListener('mouseleave', (event)=> {
-  //   header.style.backgroundColor="#9E77ED";
-  //   dropdown.classList.remove('dropdown-first--active');
-  // });
+  function menuOpen(element) {
 
+    menuHasChild.forEach(event => {
+      event.classList.remove('active');
+    })
+    menuDropContent.forEach(event => {
+      event.classList.remove('active');
+    })
 
+    header.classList.add('header--white');
+    menuDrop.classList.add('open');
+    element.classList.add('active');
 
-  // function headerColors(){
-  //   let colorChange = document.querySelectorAll(".header__link-trigger");
-  //   colorChange.forEach(event => {
-  //     event.style.color="black";
-  //   })
-  // }
+    let id = element.querySelector('a').getAttribute('href');
+    document.querySelector(id).classList.add('active');
 
-  let dropdownSecond = document.querySelector('.dropdown-second');
-  let triggerSecond = dropdown.querySelector('.header__link-trigger--second');
+  }
 
+  function menuClose() {
 
-  triggerSecond.addEventListener('mouseenter', (event)=> {
-    if (dropdownSecond.classList.contains('dropdown-second--active')){
-      dropdownSecond.classList.remove('dropdown-second--active');
-      
-    }
-    else {
-      dropdownSecond.classList.add('dropdown-second--active');
-      header.style.backgroundColor="green";
-    }
+    header.classList.remove('header--white');
+    menuDrop.classList.remove('open');
 
-  });
+    menuDropContent.forEach(event => {
+      event.classList.remove('active');
+    })
 
+    menuHasChild.forEach(event => {
+      event.classList.remove('active');
+    })
 
+  }
 
 
 });
