@@ -943,4 +943,45 @@ body {
     line-height: 16px;
     color: #98A2B3;
   }
+  &__services {
+    // width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+}
+.list {
+  padding: 48px 0;
+  width: calc(34.5%-48px);
+
+  &:nth-child(3n) {
+    width: 23%;
+  }
+  
+  &__title {
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #E4E7EC;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #101828;
+  }
+  &__item {
+    margin-bottom: 12px;
+    list-style: none;
+
+    &-link {
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #101828;
+  }
 }
