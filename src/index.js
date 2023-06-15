@@ -9,13 +9,18 @@ observer.observe();
 
     
 document.addEventListener("DOMContentLoaded", function(event) {
-  var swiper = new Swiper(".swiper", {
+  var swiper1 = new Swiper(".swiper1", {
+    modules: [Navigation, Pagination],
+    // direction: "horizontal",
+    // mousewheel: true,
+    mousewheelControl: true,
+    speed: 600,
     spaceBetween: 16,
-    slidesPerView: 3.3,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+    slidesPerView: 3.5,
+    // pagination: {
+    //   el: ".swiper-pagination1",
+    //   clickable: true,
+    // },
   });
 
 
@@ -67,6 +72,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
     })
 
   }
+
+ var swiper2 = new Swiper(".swiper2", {
+    modules: [Navigation, Pagination],
+    direction: "vertical",
+    spaceBetween: 10,
+    slidesPerView: 2,
+    pagination: {
+      el: ".swiper-pagination2",
+      clickable: true,
+      dynamicBullets: true,
+    },
+ });
+
+
+
+  var swiper3 = new Swiper(".swiper3", {
+    modules: [Navigation, Pagination],
+    spaceBetween: 20,
+    slidesPerView: 3,
+    pagination: {
+      el: ".swiper-pagination3",
+      clickable: true,
+      dynamicBullets: true,
+    },
+ });
+
 
 
 });
