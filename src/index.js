@@ -73,11 +73,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   }
 
- var swiper2 = new Swiper(".swiper2", {
+ let swiperGuestbook = new Swiper(".swiper-guestbook", {
     modules: [Navigation, Pagination],
     direction: "vertical",
     spaceBetween: 10,
-    slidesPerView: 2,
+    slidesPerView: 3,
+    centeredSlides: true,
+    autoHeight: true,
+    loop: true,
     pagination: {
       el: ".swiper-pagination2",
       clickable: true,
