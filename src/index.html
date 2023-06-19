@@ -1190,7 +1190,8 @@
             <h2 class="section-title">About us from our <span class="section-title__emphasize"> guestbook</span> </h2>
             <div class="guestbook__block">
               <div class="guestbook__left"> 
-                <img src="./images/guestbook1.svg" class="guestbook__icons" width="250" height="32">
+                <div class="guestbook__icons">👌 ✌ 😘 👍 👍</div>
+                <!-- <img src="./images/guestbook1.svg" class="guestbook__icons" width="250" height="32"> -->
                 <p class="guestbook__text">This service has saved me on many occasions; I am appreciative some people who understand life happens are able to
                 assist me and many others. I would definitely recommend this service.</p>
                 <div class="guestbook__name">Elle Gee</div>
@@ -1359,7 +1360,7 @@
                     <img src="./images/blog1.jpg" class="paper__img" width="292" height="146" alt="article">
                     <div class="paper__info">
                       <div class="paper__date">Sep 20, 2021</div>
-                      <p class="paper__name">How to Plagiarize Without Getting Caught</p>
+                      <p class="paper__name">How to Plagiarize Without Getting Caught </p>
                       <div class="paper__like">
                         <img src="./images/heart.svg" class="paper__heart" width="11" height="16" alt="heart">
                         <div class="paper__number-likes">56 likes</div>
@@ -1478,8 +1479,24 @@
             <h2 class="section-title subscribe__title"><span class="section-title__emphasize subscribe__title-highlight">Subscribe</span> and stay tuned! </h2>
             <p class="subscribe__text">About tips & tricks on how to write the best papers for educational, business and everyday life needs</p>
             <form class="form" action="/" method="post">
-              <input type="email" name="email" placeholder="Your email" class="form__input">
+              <input type="email" name="email" placeholder="Your email" class="form__input" required>
               <button type="submit" class="form__btn">Subscribe </button>
+              <!-- <div class="form__agree form__agree-terms">
+                <div class="form__click"> </div>
+                <div class="form__terms">I agree to Terms and Conditions of this platform</div>
+              </div>
+              <div class="form__agree form__agree-terms">
+                <div class="form__terms"> 
+                  <input type="checkbox" name="terms" required >  I agree to Terms and Conditions of this platform</div>
+              </div> -->
+
+                <label class="form__conditions" required>
+                  <input type="checkbox" name="terms" required>
+                  <div class="form__checkmark"> </div>
+                  <div class="form__terms">I agree to Terms and Conditions of this platform</div>
+                </label>
+             
+
             </form>
           </div>
         </div>
