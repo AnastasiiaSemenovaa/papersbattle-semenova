@@ -116,14 +116,14 @@
                 fill="white" />
             </svg>
             </a>
-            <!-- <div class="header__burger burger">
+            <div class="header__burger burger">
               <div class="burger__name">Menu</div>
               <div class="burger__btn">
                 <span>Menu line</span>
                 <span>Menu line</span>
                 <span>Menu line</span>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -358,8 +358,7 @@
         </div>
 
         <div id="brand-reviews" class="menu-drop__content brand-reviews">
-          <div class="container">
-            <div class="brand-reviews__box">
+          <div class="brand-reviews__box">
               <div class="brand-reviews__left">
                 <h4 class="brand-reviews__title">Brands reviews</h4>
                 <div class="brand-reviews__links">
@@ -479,7 +478,7 @@
                   </a>
                 </div>
                 <div>
-                  <div class="site__first site__first--green review-website__pic">
+                  <div class="site__first site__first--green review-website__pic brand-reviews__papersowl">
                     <img src="./images/papersowl.jpg" class="site__img " alt="papersowl">
                     <div class="site__animation">
                       <div class="site__animation-text">
@@ -538,7 +537,6 @@
                   </svg>
                 </a>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1173,16 +1171,19 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="more">
-        <div class="container">
-          <div class="more__box">
-            <a href="#" class="btn-check more__btn">Learn more about us</a>
+          <div class="more">
+            <div class="more__box">
+              <a href="#" class="btn-check more__btn">Learn more about us</a>
+            </div>
           </div>
         </div>
       </section>
+
+      <!-- <div class="more">
+        <div class="more__box">
+          <a href="#" class="btn-check more__btn">Learn more about us</a>
+        </div>
+      </div> -->
 
       <section class="guestbook">
         <div class="container">
@@ -1338,16 +1339,15 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="more">
-        <div class="container">
-          <div class="more__box">
-            <a href="#" class="btn-check more__btn">Show more customer feedback</a>
+          <div class="more">
+            <div class="more__box">
+              <a href="#" class="btn-check more__btn">Show more customer feedback</a>
+            </div>
           </div>
         </div>
       </section>
+
+     
 
       <section class="blog">
         <div class="container">
@@ -1462,16 +1462,16 @@
               <div class="swiper-pagination swiper-pagination3"></div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="more">
-        <div class="container">
-          <div class="more__box">
-            <a href="#" class="btn-check more__btn">Show more articles</a>
+          <div class="more">
+            <div class="more__box">
+              <a href="#" class="btn-check more__btn">Show more articles</a>
+            </div>
           </div>
         </div>
       </section>
+
+      
 
       <section class="subscribe">
         <div class="container">
@@ -1479,8 +1479,12 @@
             <h2 class="section-title subscribe__title"><span class="section-title__emphasize subscribe__title-highlight">Subscribe</span> and stay tuned! </h2>
             <p class="subscribe__text">About tips & tricks on how to write the best papers for educational, business and everyday life needs</p>
             <form class="form" action="/" method="post">
-              <input type="email" name="email" placeholder="Your email" class="form__input" required>
-              <button type="submit" class="form__btn">Subscribe </button>
+              <div class="form__box">
+                <input type="email" name="email" placeholder="Your email" class="form__input" required>
+                <button type="submit" class="form__btn">
+                  <span>Subscribe </span>
+                  <img src="./images/check-line.svg"alt = "check" width="28" height="28"></button>
+              </div>
               <!-- <div class="form__agree form__agree-terms">
                 <div class="form__click"> </div>
                 <div class="form__terms">I agree to Terms and Conditions of this platform</div>

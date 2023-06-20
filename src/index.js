@@ -13,9 +13,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
     modules: [Navigation, Pagination],
     mousewheelControl: true,
     speed: 600,
-    spaceBetween: 16,
-    slidesPerView: 3.5,
-   
+    // spaceBetween: 16,
+    // slidesPerView: 3.5,
+        breakpoints: {  
+          992: {
+            slidesPerView: 3.5,
+            spaceBetween: 16,
+          },
+          776: {
+            slidesPerView: 2.5,
+            spaceBetween: 20,},
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20, },
+        },
   });
 
 
@@ -70,31 +81,68 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
  let swiperGuestbook = new Swiper(".swiper-guestbook", {
     modules: [Navigation, Pagination],
-    direction: "vertical",
-    spaceBetween: 10,
-    slidesPerView: 3,
+    // slidesPerView: 3,
     centeredSlides: true,
+    spaceBetween: 10,
     autoHeight: true,
     loop: true,
-    pagination: {
-      el: ".swiper-pagination2",
-      clickable: true,
-      dynamicBullets: true,
-    },
+    
+    breakpoints: {  
+          992: {
+            direction: "vertical",
+            slidesPerView: 4,
+            spaceBetween: 16,
+            pagination: {
+              el: ".swiper-pagination2",
+              clickable: true,
+              dynamicBullets: true,
+            },
+
+          },
+          
+          0: {
+            direction: "horizontal",
+            slidesPerView: 4,
+            spaceBetween: 10, },
+        },
  });
 
 
 
   var swiper3 = new Swiper(".swiper3", {
     modules: [Navigation, Pagination],
-    spaceBetween: 30,
-    slidesPerView: 4,
-    pagination: {
-      el: ".swiper-pagination3",
-      clickable: true,
-      // dynamicBullets: true,
+    // spaceBetween: 30,
+    // slidesPerView: 4,
+    // pagination: {
+    //   el: ".swiper-pagination3",
+    //   clickable: true,
+    //   // dynamicBullets: true,
+    // },
+    breakpoints: {  
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+      776: {
+        slidesPerView: 2.5,
+        spaceBetween: 20,},
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 30, },
     },
  });
+
+
+let burger = document.querySelector('.burger');
+let topNav = document.querySelector('.header__nav');
+
+if (burger && topNav) {
+  burger.addEventListener('click', function () {
+    this.classList.toggle('open');
+    topNav.classList.toggle('open');
+  }
+  )
+}
 
 
 
