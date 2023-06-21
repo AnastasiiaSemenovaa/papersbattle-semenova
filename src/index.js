@@ -81,30 +81,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
  let swiperGuestbook = new Swiper(".swiper-guestbook", {
     modules: [Navigation, Pagination],
-    // slidesPerView: 3,
+    direction: "vertical",
+    slidesPerView: 4,
+    spaceBetween: 16,
     centeredSlides: true,
     spaceBetween: 10,
     autoHeight: true,
     loop: true,
-    
-    breakpoints: {  
-          992: {
-            direction: "vertical",
-            slidesPerView: 4,
-            spaceBetween: 16,
-            pagination: {
-              el: ".swiper-pagination2",
-              clickable: true,
-              dynamicBullets: true,
-            },
+    pagination: {
+      el: ".swiper-pagination2",
+      clickable: true,
+      dynamicBullets: true,
+    },
 
-          },
+    // breakpoints: {  
+    //       992: {
+    //         direction: "vertical",
+    //         slidesPerView: 4,
+    //         spaceBetween: 16,
+    //         pagination: {
+    //           el: ".swiper-pagination2",
+    //           clickable: true,
+    //           dynamicBullets: true,
+    //         },
+
+    //       },
           
-          0: {
-            direction: "horizontal",
-            slidesPerView: 4,
-            spaceBetween: 10, },
-        },
+    //       // 0: {
+    //       //   direction: "horizontal",
+    //       //   slidesPerView: 4,
+    //       //   spaceBetween: 10, },
+    //     },
  });
 
 
@@ -124,8 +131,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         spaceBetween: 20,
       },
       776: {
-        slidesPerView: 2.5,
-        spaceBetween: 20,},
+        slidesPerView: 2.3,
+        spaceBetween: 10,},
       0: {
         slidesPerView: 1,
         spaceBetween: 30, },
@@ -144,7 +151,31 @@ if (burger && topNav) {
   )
 }
 
+// window.addEventListener('scroll', (event) => {
+//   // lastKnownScrollPosition = window.scrollY;
+//   header.classList.toggle('fixed');
+//   header.classList.toggle('fixed');
+// })
 
+// window.onscroll = () => {
+//   header.classList.toggle('fixed');
+//   // header.classList.toggle('fixed');
+// }
+
+
+
+
+window.addEventListener ('scroll',() => {
+    header.classList.toggle('fixed');
+})
+
+ var swiperCategories = new Swiper(".swiper-categories", {
+  pagination: {
+    el: ".swiper-pagination-categories",
+  },
+  slidesPerView: 1.1,
+  spaceBetween: 20,
+});
 
 });
  

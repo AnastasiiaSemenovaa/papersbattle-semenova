@@ -21,7 +21,7 @@ hr {
   margin: 0;
   padding: 0;
 }
-body {
+.body {
   font-family: 'IBM Plex Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -81,10 +81,22 @@ body {
   }
 }
 .header {
+  display: block;
   background-color: #9E77ED;
   border-bottom: 1px solid #FFFFFF;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  position: fixed;
+  transition: 0.3s;
   &--white {
     background: #fff;
+  }
+  &.fixed {
+    color: #101828;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 0px 4px -2px rgba(16, 24, 40, 0.06);
   }
   &__left {
     .header--white &{
@@ -638,7 +650,8 @@ body {
     margin-bottom: 16px;
   }
   &__box {
-    padding-top: 48px;
+    margin-top: 96px;
+    // padding-top: 48px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -694,6 +707,7 @@ body {
     }
     @media (max-width: 776px) {
       margin-bottom: 16px;
+      font-weight: 500;
       font-size: 32px;
       line-height: 40px;
     }
@@ -736,7 +750,7 @@ body {
     }
     @media (max-width: 776px) {
       position: absolute;
-      width: 100%;
+      width: 93%;
       bottom: 10px;
     }
   }
@@ -768,9 +782,10 @@ body {
   align-items: flex-start;
   background-color: #F9FAFB;
   @media (max-width: 776px) {
+    
     width: 100%;
     align-items: center;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
   }
   &__img {
     margin-bottom: 32px;
@@ -1024,8 +1039,30 @@ body {
   @media (max-width: 992px) {
     margin-bottom: 48px;
   }
-
 }
+.swiper-categories {
+  // display: none;
+  @media (max-width: 776px) {
+    display: inline;
+  }
+  &__slide {
+    @media (max-width: 776px) {
+      width:fit-content;
+      display: flex;
+      flex-direction: column;
+      }
+  }
+  // & .category__link:after {
+  //   display: none;
+  // }
+  // & .category__item {
+  //   width: 200px;
+  // }
+  //   & .grid__item {
+  //     width: 200px;
+  //   }
+}
+
 .about {
   background: #FFFFFF;
   margin-bottom: 80px;
@@ -1042,7 +1079,7 @@ body {
         padding: 48px 24px 0 24px;
       }
     @media (max-width: 776px) {
-      padding: 16px 0 0 0;
+      padding: 16px 16px 0;
     }
   }
   &__block {
@@ -1167,17 +1204,53 @@ body {
 }
 .guestbook {
   margin-bottom: 80px;
-  
+  overflow: hidden;
+
   @media (max-width: 992px) {
     margin-bottom: 48px;
   }
-  overflow: hidden;
   .swiper-wrapper {
     display: block;
     height: 450px!important;
+    
   }
   .swiper-slide {
     height: 200px!important;
+    
+  }
+  .swiper-pagination {
+    position: absolute;
+    right: -25px; 
+    z-index: 9;
+  }
+  .swiper-guestbook {
+    // overflow: visible;
+    &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 9999;
+        content: "";
+        height: 20px;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(16, 24, 40, 0) 0%, rgba(16, 24, 40, 0.08) 100%);
+        transform: matrix(1, 0, 0, -1, 0, 0);
+      }
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 9999;
+      content: "";
+      height: 20px;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(16, 24, 40, 0) 0%, rgba(16, 24, 40, 0.08) 100%);
+    }
+  }
+  .swiper-pagination-bullet {
+    background-color: #fff;
   }
   &__box {
     margin-bottom: 16px;
@@ -1230,6 +1303,7 @@ body {
   &__right {
     padding: 0 76px 0 32px;
     height: 450px;
+    
   }
 }
 .comment {
@@ -1400,12 +1474,14 @@ body {
   }
   
   &__box {
-    // padding: 32px;
+    padding: 32px;
     border: 1px solid #98A2B3;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     @media (max-width: 992px) {
       flex-direction: column;
+      align-items: normal;
       gap: 8px;
       border: none;
     }
@@ -1431,6 +1507,7 @@ body {
     }
   }
   &__btn {
+    height: fit-content;
     display: flex;
     justify-content: center;
     gap: 16px;
@@ -1545,7 +1622,6 @@ body {
     }
   }
   &__img {
-    display: block;
     margin-right: 32px;
   }
   &__copyright {
@@ -1563,6 +1639,7 @@ body {
     }
   }
   &__socials {
+    display: inline;
     @media (max-width:992px) {
       display: flex;
     }
@@ -1577,6 +1654,9 @@ body {
   }
   @media (max-width: 992px) {
     width: 100%;
+    &:nth-child(3n) {
+      width: 100%;
+    }
   }
   
   &__title {
