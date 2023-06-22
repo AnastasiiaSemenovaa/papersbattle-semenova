@@ -65,8 +65,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function menuClose() {
+      if (!header.classList.contains('header--fixed')) {
+          header.classList.remove('header--white');
+      }
 
-    header.classList.remove('header--white');
     menuDrop.classList.remove('open');
 
     menuDropContent.forEach(event => {
@@ -83,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     modules: [Navigation, Pagination],
     direction: "vertical",
     slidesPerView: 4,
-    spaceBetween: 16,
     centeredSlides: true,
     spaceBetween: 10,
     autoHeight: true,
@@ -94,24 +95,31 @@ document.addEventListener("DOMContentLoaded", function(event) {
       dynamicBullets: true,
     },
 
-    // breakpoints: {  
-    //       992: {
-    //         direction: "vertical",
-    //         slidesPerView: 4,
-    //         spaceBetween: 16,
-    //         pagination: {
-    //           el: ".swiper-pagination2",
-    //           clickable: true,
-    //           dynamicBullets: true,
-    //         },
+    breakpoints: {
+        992: {
+            direction: "vertical",
+            slidesPerView: 4,
+            spaceBetween: 16,
+            pagination: {
+                el: ".swiper-pagination2",
+                clickable: true,
+                dynamicBullets: true,
+            },
 
-    //       },
-          
-    //       // 0: {
-    //       //   direction: "horizontal",
-    //       //   slidesPerView: 4,
-    //       //   spaceBetween: 10, },
-    //     },
+        },
+          0: {
+            direction: "horizontal",
+            slidesPerView: 4,
+            spaceBetween: 16,
+            pagination: {
+              el: ".swiper-pagination2",
+              clickable: true,
+              dynamicBullets: true,
+            },
+
+          },
+
+        },
  });
 
 
@@ -166,16 +174,50 @@ if (burger && topNav) {
 
 
 window.addEventListener ('scroll',() => {
-    header.classList.toggle('fixed');
-})
+    let posTop = window.pageYOffset;
+    if(posTop < 1) {
+        header.classList.remove('header--white');
+        header.classList.remove('header--fixed');
+    } else  {
+        header.classList.add('header--white');
+        header.classList.add('header--fixed');
+    }
 
- var swiperCategories = new Swiper(".swiper-categories", {
-  pagination: {
-    el: ".swiper-pagination-categories",
-  },
-  slidesPerView: 1.1,
-  spaceBetween: 20,
-});
+})
+    console.log(window.screen.width);
+
+    if (window.screen.width < 768) {
+        console.log(window.innerWidth);
+        let swiperCategories = new Swiper(".swiper-categories", {
+            grid: {
+                rows: 2,
+            },
+            pagination: {
+                el: ".swiper-pagination-categories",
+            },
+            slidesPerView: 2,
+            spaceBetween: 20,
+        });
+    } else {
+
+    }
+
+    let form = document.querySelector('.form');
+
+    form.addEventListener('submit', function (e){
+
+       let input = form.querySelector('input');
+       let inputVal = input.value;
+
+       if (inputVal.length > 0) {
+           input.classList.remove('required');
+
+       } else {
+           input.classList.add('required');
+       }
+        e.preventDefault();
+    });
+
 
 });
  
