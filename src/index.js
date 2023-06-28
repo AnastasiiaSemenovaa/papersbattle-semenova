@@ -84,6 +84,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
  let swiperGuestbook = new Swiper(".swiper-guestbook", {
     modules: [Navigation, Pagination],
     direction: "vertical",
+    direction: getDirection(),
+    on: {
+        resize: function () {
+          swiper.changeDirection(getDirection());
+        },
+      },
     slidesPerView: 4,
     centeredSlides: true,
     spaceBetween: 10,
@@ -122,7 +128,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         },
  });
 
+    function getDirection() {
+      var windowWidth = window.innerWidth;
+      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
 
+      return direction;
+    }
 
   var swiper3 = new Swiper(".swiper3", {
     modules: [Navigation, Pagination],
@@ -186,21 +197,21 @@ window.addEventListener ('scroll',() => {
 })
     console.log(window.screen.width);
 
-    if (window.screen.width < 768) {
-        console.log(window.innerWidth);
-        let swiperCategories = new Swiper(".swiper-categories", {
-            grid: {
-                rows: 2,
-            },
-            pagination: {
-                el: ".swiper-pagination-categories",
-            },
-            slidesPerView: 2,
-            spaceBetween: 20,
-        });
-    } else {
+    // if (window.screen.width < 768) {
+    //     console.log(window.innerWidth);
+    //     let swiperCategories = new Swiper(".swiper-categories", {
+    //         grid: {
+    //             rows: 2,
+    //         },
+    //         pagination: {
+    //             el: ".swiper-pagination-categories",
+    //         },
+    //         slidesPerView: 2,
+    //         spaceBetween: 20,
+    //     });
+    // } else {
 
-    }
+    // }
 
     let form = document.querySelector('.form');
 
