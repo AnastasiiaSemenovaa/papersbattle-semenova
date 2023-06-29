@@ -96,6 +96,13 @@ hr {
   &--fixed {
     box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.1), 0px 0px 4px -2px rgba(16, 24, 40, 0.06);
   }
+  &__nav-mob-btn-check {
+    display: none;
+    @media (max-width: 992px) {
+      display: block;
+      background: #9E77ED;
+    }
+  }
   &__left {
     .header--white &{
         svg path{
@@ -122,11 +129,13 @@ hr {
       background: #fff;
       color: #101828;
       width: 100%;
-      height: 100%;
       top: 100px;
       z-index: 100;
       transition: 0.3s;
-      
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100vh - 100px);
     }
 
     &.open {
@@ -256,6 +265,9 @@ hr {
       margin-bottom: 5px;
       display: block;
       background: #FFFFFF;
+      .header--white &{
+        background: #000;
+      }
       &:last-child {
         margin-bottom: 0;
       }
@@ -295,6 +307,7 @@ hr {
     transition: 0.3s;
     position: absolute;
     visibility: hidden;
+    width: 100%;
 
     &.active {
       opacity: 1;
@@ -543,7 +556,6 @@ hr {
   
   &__box {
     display: flex;
-    align-items: center;
   }
 
   &__title {
@@ -589,7 +601,7 @@ hr {
  &__left {
    padding: 32px 32px 32px 0;
    min-height: 110px;
-   width: calc(100%- (384px + (100% - 1184px)/2));
+   width: calc(100% - (384px + (100% - 1184px)/2));
   //  width: calc(100% - 384px);
    margin-left: calc((100vw - 1184px)/2);
  }
@@ -603,6 +615,7 @@ hr {
 
    padding-right: calc((100vw - 1184px)/2);
    padding-bottom: calc((100vh - 1184px)/2);
+
   }
 
 
@@ -1203,44 +1216,35 @@ hr {
 .guestbook {
   margin-bottom: 80px;
   overflow: hidden;
-
+  .swiper {
+   overflow: inherit;
+  }
   @media (max-width: 992px) {
     margin-bottom: 48px;
-
-     .swiper-slide {
-        display: block;
-        width: auto !important;
-        height: auto !important;
-        flex-shrink: 0;
-        
-     }
-        .swiper-wrapper {
-          width: 100%;
-          // height: 100%;
-        }
-
   }
   .swiper-wrapper {
-    display: block;
-    height: 450px!important;
-    @media (max-width:992px) {
-        width: 700px;
-      }    
+    @media (min-width:992px) {
+      display: block;
+      height: 450px !important;
+    }
   }
   .swiper-slide {
-    height: 200px!important;
-    @media (max-width:992px) {
-      width: 250px;
-    }   
+    @media (min-width:992px) {
+      height: 200px !important;
+    }
   }
   .swiper-pagination {
     position: absolute;
     right: -25px;
     z-index: 9;
+    @media (max-width:992px) {
+      bottom: -50px;
+    }
   }
   .swiper-guestbook {
     // overflow: visible;
-    &::before {
+    @media (min-width:992px) {
+      &::before {
         display: block;
         position: absolute;
         top: 0;
@@ -1252,16 +1256,17 @@ hr {
         background: linear-gradient(180deg, rgba(16, 24, 40, 0) 0%, rgba(16, 24, 40, 0.08) 100%);
         transform: matrix(1, 0, 0, -1, 0, 0);
       }
-    &::after {
-      display: block;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: 9999;
-      content: "";
-      height: 20px;
-      width: 100%;
-      background: linear-gradient(180deg, rgba(16, 24, 40, 0) 0%, rgba(16, 24, 40, 0.08) 100%);
+      &::after {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 9999;
+        content: "";
+        height: 20px;
+        width: 100%;
+        background: linear-gradient(180deg, rgba(16, 24, 40, 0) 0%, rgba(16, 24, 40, 0.08) 100%);
+      }
     }
   }
   .swiper-pagination-bullet {
@@ -1273,6 +1278,7 @@ hr {
   &__block {
     display: flex;
     background-color: #6941C6;
+    overflow: hidden;
     @media (max-width: 992px) {
       flex-direction: column;
       align-items: center;
@@ -1318,14 +1324,21 @@ hr {
   &__right {
     padding: 0 76px 0 32px;
     // height: 450px;
-    
+
+    @media (max-width: 992px) {
+      width: 100%;
+      padding: 0 0 80px;
+    }
   }
 }
 .comment {
   padding: 16px;
   overflow: hidden;
-  max-height: 200px;
-  height: 200px!important;
+
+  @media (min-width: 992px) {
+    max-height: 200px;
+    height: 200px !important;
+  }
   background: #fff;
 
   // @media (max-width:992px) {

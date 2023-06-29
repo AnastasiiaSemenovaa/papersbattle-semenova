@@ -83,13 +83,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
  let swiperGuestbook = new Swiper(".swiper-guestbook", {
     modules: [Navigation, Pagination],
-    direction: "vertical",
-    direction: getDirection(),
-    on: {
-        resize: function () {
-          swiper.changeDirection(getDirection());
-        },
-      },
+    direction: "horizontal",
     slidesPerView: 4,
     centeredSlides: true,
     spaceBetween: 10,
@@ -113,10 +107,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
             },
 
         },
+        480: {
+            direction: "horizontal",
+            slidesPerView: 2.5,
+            spaceBetween: 16,
+            centeredSlides: true,
+            autoHeight: true,
+            pagination: {
+                el: ".swiper-pagination2",
+                clickable: true,
+                dynamicBullets: true,
+            },
+        },
           0: {
             direction: "horizontal",
-            slidesPerView: 4,
+            slidesPerView: 1.2,
             spaceBetween: 16,
+            centeredSlides: true,
+            autoHeight: true,
             pagination: {
               el: ".swiper-pagination2",
               clickable: true,
@@ -128,12 +136,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         },
  });
 
-    function getDirection() {
-      var windowWidth = window.innerWidth;
-      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
-
-      return direction;
-    }
 
   var swiper3 = new Swiper(".swiper3", {
     modules: [Navigation, Pagination],
