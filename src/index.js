@@ -169,6 +169,7 @@ if (burger && topNav) {
     this.classList.toggle('open');
     topNav.classList.toggle('open');
   }
+  
   )
 }
 
