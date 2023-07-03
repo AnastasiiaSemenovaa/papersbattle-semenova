@@ -169,7 +169,7 @@ hr {
   &__search {
     margin-right: 32px;
     cursor: pointer;
-
+   
     &:hover path{
       fill:#6941C6;
     }
@@ -179,6 +179,7 @@ hr {
       }
     }
     &.show {
+      margin-right: 0px;
       path {
         fill: #98A2B3;
       }
@@ -751,7 +752,9 @@ hr {
   &__btn {
     display: none;
   }
-  
+  // & :focus {
+  //   outline-color: #fff;
+  // }
 }
 
  
