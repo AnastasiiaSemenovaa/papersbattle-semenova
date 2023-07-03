@@ -183,7 +183,7 @@ if (findHeader && searchHeader ) {
   searchHeader.addEventListener('click', function () {
     this.classList.toggle('show');
     // header.classList.add('header--white');
-    listHeader.classList.toggle('hide');
+    // listHeader.classList.toggle('hide');
     findHeader.classList.toggle('show');
 
   })

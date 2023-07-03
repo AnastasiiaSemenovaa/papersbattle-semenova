@@ -119,6 +119,7 @@ hr {
           fill: #9E77ED;
         }
     }
+        
   }
   &__box {
     padding: 28px 0;
@@ -705,6 +706,11 @@ hr {
       position: absolute;
       right: 0;
       top:-100px;
+    }
+    .header__logo, .header__burger{
+      @media (max-width:992px) {
+        display: none;
+      }
     }
    
   }
